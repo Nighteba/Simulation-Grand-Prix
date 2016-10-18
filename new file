@@ -1,0 +1,23 @@
+struct voiture
+{
+        int numero;
+        bool abandon;
+        bool pitStop;
+        bool enPanne;
+        int tpsCourseEssaisi[9];
+        long tpsCourseQualifs[9];
+};
+
+
+
+int main(int argc, char *argV[]){
+  int i, n;
+
+  n = 22;
+
+srand((unsigned) time(NULL));
+        for(i=0; i<n; i++){
+                printf("%d\n",rand() % 50);
+        }
+
+return(0);
