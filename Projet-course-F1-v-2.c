@@ -11,11 +11,10 @@
 struct voiture
 	{
 		int numero;
-		bool abandon;
+		bool abandon;		//abandon ou panne
 		bool pitStop;
-		bool enPanne;
 		double tempsEssais[3];
-		double tempsQualifs[3];
+		double bestTime;
 		double tempsTourEssais;
 		double tempsTourQualifs;
 	};
