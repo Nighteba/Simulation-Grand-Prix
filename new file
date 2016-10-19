@@ -16,7 +16,8 @@ struct voiture
         long tpsCourseQualifs[9];
 };
 
-
+int maxTempsMillis = 60000;	// temps maximal de course
+int minTempsMillis = 40000;	// temps minimal de course
 
 int main(int argc, char *argV[]){
   int i, n;
