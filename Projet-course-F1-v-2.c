@@ -1,68 +1,222 @@
-#include <rand.h>		//Génération de nombres aléatoires
+#include "rand.h"		//Génération de nombres aléatoires
 #include <vector>
 #include <stdio.h>
 #include <std.lib>
 #include <stdbool.h>	//Librairie des booléens
 #include <time.h>		//Simule les temps des coureurs
 
+#define RAND_MAX 
 
 
-
-struct voiture
+//	int listeCoureurs[22] = {44, 6, 5, 7, 3, 33, 19, 77, 11, 27, 26, 55, 14, 22, 9, 12, 20, 30, 8, 21, 31, 94};
+	struct voiture
 	{
 		int numero;
-		bool abandon;		//abandon ou panne
+		bool abandon;
 		bool pitStop;
-		double tempsEssais[3];
-		double bestTime;
-		double tempsTourEssais;
-		double tempsTourQualifs;
+		bool enPanne;
+		int tempsEssais[3];
+		int meilleurTemps;
+		//long tempsCourseQualifs[9];
 	};
-	double s1;
 	
-int main(int argc,char **argv)
+	int maxTempsMillis = 60000;	// temps maximal de course
+	int minTempsMillis = 40000;	// temps minimal de course
+	
+//	double tempsParCoureur[22];
+ 
+ //OU double coureurs[3][22];
+int randTemps(int a, int b)
+{
+	return rand()%(b-a) + a;
+}
+
+ 
+ void roule()
+{
+	//générer des temps, pits stops, abandons aléatoirement avec random
+	
+	
+}
+
+
+void setTemps(int[], int indice)
+{
+	//Randomiser le temps du coureur entre le record mondial courant en tant que RAND_MAX 
+	// & la pire valeur possible, placer le temps dans une case du tableau
+					int tempsTour = randTemps();
+				tempsCourseEssais[indice] = tempsTour;
+	
+}
+
+
+void remplaceTemps(double tempsPrecedent, double nouveauTemps)
+{
+	if(tempsPrecedent > nouveauTemps)
+	{
+		tempsPrecedent = nouveauTemps;
+	}
+	
+}
+
+void eliminationCoureurs(char)
 {
 	
-	//Vendredi matin : essai libre 1 "heure" 30 (P1) checker si abandon et panne beforehand
+}
+
+	/*A realiser dans un fichier different, juste pour l'affichage*/
+void afficheVoiture(struct voiture)
+{
+	//affiche les resultats d'une voiture donnée
+	printf("numero");
+	for(int i= 0; i < tempsEssais.length && tempsEssai[i] != null; )
+	{
+		printf(tempsEssais[i]);
+	}
 	
+}
+
 	
+void affichePalmares()
+{
+	double nouveauTableau[sizeof()];
+}
+
+int main(int argc,char **argv)
+{
+	srand(time(NULL));
+	
+	//Vendredi matin : essai libre 1 "heure" 30 (P1)
 	
 			//Relevé temps S1
 			
-			
-			if(enPanne || abandon)
+			if(abandon)
 			{
-				exit(failure);
 				
-			}else
-			{
-					//random du temps , tempsEssais[0]
-					s1 = srand(a,b,int a; int b)
-					{
-						
-						
-					};
 			}
-			
+			else
+			{
+				
+				//random(temps)
+				//Inserer le random dans le tableau via setTemps
+			}
+				
+				
+				
 			//Relevé temps S2
 			
+			if(abandon)
+			{
+				
+			}
+			else
+			{
+				
+				//random(temps)
+				//Inserer le random dans le tableau via setTemps
+			}
+			
+				
 			//Relevé temps S3
+			
+			if(abandon)
+			{
+				
+			}
+			else
+			{
+				
+				//random(temps)
+				//Inserer le random dans le tableau via setTemps
+			}
 	
 	//Vendredi aprèm : essai libre 1 "heure" 30  (P2)
 	
 			//Relevé temps S1
+				
+				
+			if(abandon)
+			{
+				
+			}
+			else
+			{
+				
+				//random(temps)
+				//Inserer le random dans le tableau via setTemps
+			}
 			
 			//Relevé temps S2
 			
+				
+			if(abandon)
+			{
+				
+			}
+			else
+			{
+				
+				//random(temps)
+				//Inserer le random dans le tableau via setTemps
+			}
+			
 			//Relevé temps S3
 			
+				
+			if(abandon)
+			{
+				
+			}
+			else
+			{
+				
+				//random(temps)
+				//Inserer le random dans le tableau via setTemps
+			}
+				
 	//Samedi matin : essai libre 1 "heure" 30 (P3)
 			
 			//Relevé temps S1
 			
+			
+			if(abandon)
+			{
+				
+			}
+			else
+			{
+				
+				//random(temps)
+				//Inserer le random dans le tableau via setTemps
+			}
+			
 			//Relevé temps S2
 			
+				
+			if(abandon)
+			{
+				
+			}
+			else
+			{
+				
+				//random(temps)
+				//Inserer le random dans le tableau via setTemps
+			}
+			
 			//Relevé temps S3
+			
+			
+			if(abandon)
+			{
+				
+			}
+			else
+			{
+				
+				//random(temps)
+				//Inserer le random dans le tableau via setTemps
+			}
 			
 	//Samedi aprèm
 	
@@ -76,4 +230,7 @@ int main(int argc,char **argv)
 	
 	
 	
+}
+
+
 }
