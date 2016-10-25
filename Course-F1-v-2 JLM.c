@@ -8,13 +8,14 @@
 #define RAND_MAX 
 
 
+
+
 //	int listeCoureurs[22] = {44, 6, 5, 7, 3, 33, 19, 77, 11, 27, 26, 55, 14, 22, 9, 12, 20, 30, 8, 21, 31, 94};
 	struct voiture
 	{
 		int numero;
-		bool abandon;
+		bool abandon;		// abandon ou panne de voiture
 		bool pitStop;
-		bool enPanne;
 		int tempsEssais[3];
 		int meilleurTemps;
 		//long tempsCourseQualifs[9];
@@ -31,7 +32,45 @@ int randTemps(int a, int b)
 	return rand()%(b-a) + a;
 }
 
- 
+int tempsTotal(struct car)
+{
+	int totalTime;		//temps total du coureur
+	for(int i = 0; i < sizeof(car.tempsEssais); i++)
+	{
+		totalTime += tempsEssais[i];
+	}
+	return totalTime;
+}
+
+void setMeilleurTemps(struct coureur)
+{
+	for(int i = 0; i < coureur.sizeof(tmpsCourse);i++)
+	{
+		if(coureur.tmpsCourse[i] < meilleurTemps)
+		{
+			meilleurTemps = tmpsCourse[i];
+		}
+	}
+}
+
+ int genereRandTemps(int coureur)
+ {
+	unsigned int randval;
+	FILE *f;
+	
+	f=fopen("/dev/random", "r");
+	fread(&randval, sizeof(randval), 1, f);
+	fclose(f);
+	for(int i=0; i < sizeof(tempsEssais) - 1;i++)
+	{
+		if(tempsEssais[i] != null)
+		{
+			tempsEssais[i] = randval % 2;
+		}
+	}
+	
+	
+ }
  void roule()
 {
 	//générer des temps, pits stops, abandons aléatoirement avec random
