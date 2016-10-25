@@ -42,6 +42,17 @@ int tempsTotal(struct car)
 	return totalTime;
 }
 
+void setMeilleurTemps(struct coureur)
+{
+	for(int i = 0; i < coureur.sizeof(tmpsCourse);i++)
+	{
+		if(coureur.tmpsCourse[i] < meilleurTemps)
+		{
+			meilleurTemps = tmpsCourse[i];
+		}
+	}
+}
+
  int genereRandTemps(int coureur)
  {
 	unsigned int randval;
