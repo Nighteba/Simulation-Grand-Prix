@@ -6,10 +6,11 @@ int main(int argc, char *argv){
 	unsigned int randval;
 	FILE *f;
 	
-	f=fopen("/dev/random", "r");
-	fread(&randval, sizeof(randval), 1, f);
-	fclose(f);
-
+	while(randval < 40000 || randval > 60000){
+		f=fopen("/dev/random", "r");
+		fread(&randval, 2, 1, f);
+		fclose(f);
+	};
 	printf("%u\n", randval);
 
 	return 0;
