@@ -1,7 +1,7 @@
 #include "rand.h"		//Génération de nombres aléatoires
 #include <vector>
 #include <stdio.h>
-#include <std.lib>
+#include <stdlib.h>
 #include <stdbool.h>	//Librairie des booléens
 #include <time.h>		//Simule les temps des coureurs
 
