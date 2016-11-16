@@ -108,7 +108,7 @@ void afficheVoiture(struct voiture)
 {
 	//affiche les resultats d'une voiture donnée
 	printf("numero");
-	for(int i= 0; i < tempsEssais.length && tempsEssai[i] != null; )
+	for(int i= 0; i < sizeof(tempsEssais) && tempsEssai[i] != null; )
 	{
 		printf(tempsEssais[i]);
 	}
@@ -124,6 +124,23 @@ void affichePalmares()
 int main(int argc,char **argv)
 {
 	srand(time(NULL));
+	
+	//Generer 22 coureurs.
+	pid_t pidFils[22];
+	
+	for(int i = 0; i < sizeof(pidFils); i++)
+	{
+		
+	}
+	fork();
+	
+	if(pidFils >= 0)	//fork reussi
+	{
+		if(pidFils == 0)
+		{
+			// processus fils
+		}
+	}
 	
 	//Vendredi matin : essai libre 1 "heure" 30 (P1)
 	
