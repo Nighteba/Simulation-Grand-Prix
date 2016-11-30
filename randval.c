@@ -17,3 +17,12 @@ unsigned int randval(){
 	//printf("%u\n", randval);
 	return randval;	
 }
+
+/*unsigned int tpsTour(struct voiture *v){
+	int tot = 0;
+	
+	for(int i = 0; i < 3; i++){
+		tot += v->tpsSecteur[i];
+	} 
+	return tot;*/
+
