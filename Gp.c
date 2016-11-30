@@ -34,7 +34,7 @@ int main(){
 		if(pid = 0){
 			//printf("Voiture :%d\n", j);
         		voiture v;
-        		for(i = 0; i < NB_TEMPS; i++){
+        		for(j = 0; j < NB_TEMPS; j++){
         			v.abandon = randval();
 			
 	        		if(v.abandon % 10 != 0){
