@@ -30,6 +30,7 @@ int main(int argc, char*argv[]){
         int l;
         pid_t pid;
         struct voiture course[NB_COUREURS];
+        int classement seance[3];                      //retient le classement de P1,P2 & P3.
 
 int main(int argc, char*argv[]){
         int i;
@@ -37,16 +38,16 @@ int main(int argc, char*argv[]){
         int k;
         int l;
         pid_t pid;
-        struct voiture course[NB_COUREURS];
+        struct voiture course[NB_COUREURS];             //ensemble des competiteurs.
         size_t size_k = sizeof(voiture);
-        key_t key=9999 ; /* clé à passer a shmget*/
+        key_t key = 9999 ; /* clé à passer a shmget*/
         int shmFlag; /*flag  à passer a shmget*/
         int shmid; /*l'id de la memoire partagée*/
         char * pmem; // pointeur vers la memoire partagée
 
-        shmid = shmget (key, size_k*NB_COUREURS,IPC_CREAT|0666);// crée la mémoire partagée, la clé, sa taille, les permission
+        shmid = shmget (key, size_k*NB_COUREURS,IPC_CREAT|0666); // crée la mémoire partagée, la clé, sa taille, les permissions
 
-        if(shmid== -1){
+        if(shmid== -1){          
                 perror("shmget fail");
                 exit(1);
         }
@@ -59,7 +60,7 @@ int main(int argc, char*argv[]){
                 if(pid == -1){
                         exit(EXIT_FAILURE);
                 }
- 				if(pid = 0){
+ 				if(pid = 0){            //processus fils, le coureur.
                         printf("voiture num:%d", j);
                         voiture v;
                         for(j = 0; j < NB_TEMPS; j++){
@@ -92,6 +93,24 @@ int main(int argc, char*argv[]){
         shmdt(pmem); //détache le segment de la mémoire partagée
 
 }//main
+        
+        // To Do list :
+        
+        // 1) Generer des temps coherents allant de 40000 ms à 60000 ms. (utiliser des constantes?)
+        // 2) Semaphores
+        // (-) Periodes d'essais libres
+        
+        // 3) Gerer les essais libres P1,P2 & P3
+        // 4) Conserver tous ces temps après chaque séance.
+        
+        // (-) Qualifications : 
+        // Idem que les essais libres, mais apres chaque Qn, les pires voitures sont out.
+                //Fin Q1 : 22 - 6 = 16 coureurs en lice
+                //Fin Q2 : 16 - 6 = 10 coureurs en lice
+                //Fin Q3 : Places de 1  à 10 de la grille de départ
+        //Ordre final pour la course finale
+        
+        
 
 
 
