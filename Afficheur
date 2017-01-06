@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <stdbool.h>
+#include <unistd.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/sem.h>
+#include <errno.h>
+#include "proto.h"
+#define NB_TEMPS 3
+#define NB_COUREURS 22
+
+int main() {
+        sleep(8);
+        size_t size_k = sizeof(voiture);
+        key_t key=8888 ; /* clé à passer a shmget*/
+        voiture shmCopy[NB_COUREURS];   //copie dans la memoire partagee de tous les coureurs.
+        int shmid = shmget (key, size_k*NB_COUREURS,IPC_CREAT|0666);// crée la mémoire partagée, la clé, sa taille, les permission
+        voiture *pmem; // pointeur vers la mémoire partagé, de type struct voiture
+
+        read(shmid,shmCopy,size_k*22);
+        qsort(shmCopy, NB_COUREURS, size_k,comp);
+        for(int k = 0; k < NB_COUREURS; k++){
+                         printf("Voiture : %d\n", shmCopy[k].numero);
+                               /* for(int l = 0; l < NB_TEMPS; l++){
+                                        printf("Temps secteur : %d\n", shmCopy[k].tpsSecteur[l]);
+                                }*/
+                        printf("Temps tour : %d\n", shmCopy[k].tpsTour);
+                        }
+        shmdt(pmem);     
+}
